@@ -3,6 +3,7 @@ package com.example.employeemanagement.controller;
 import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+
 
     @GetMapping
     public List<Employee> getAllEmployees() {
