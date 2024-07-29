@@ -2,9 +2,7 @@ package com.example.employeemanagement.controller;
 
 import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Profile;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,11 +10,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
-@Profile("dev")
 
+@RequiredArgsConstructor()
 public class EmployeeController {
-    @Autowired
-    private EmployeeService employeeService;
+
+    private final EmployeeService employeeService;
 
 
     @GetMapping
