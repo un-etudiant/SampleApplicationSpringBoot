@@ -4,11 +4,8 @@ import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,25 +19,25 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
-     }
+    }
 
     public Optional<Employee> getEmployeeById(Long id) {
-        log.info(" Fetch by Employee Id {}",id);
-       return employeeRepository.findById(id);
+        log.info(" Fetch by Employee Id {}", id);
+        return employeeRepository.findById(id);
     }
 
     public Employee saveEmployee(Employee employee) {
-        if(employee.getEmail()==null){
+        if (employee.getEmail() == null) {
             log.error(" Cannot use NULL email");
             throw new UnsupportedOperationException("Cannot use NULL email");
         }
-       return employeeRepository.save(employee);
+        return employeeRepository.save(employee);
 
     }
 
     public void deleteEmployee(Long id) {
 
-       employeeRepository.deleteById(id);
+        employeeRepository.deleteById(id);
     }
 //    private boolean isDevProfile() {
 //        return Arrays.asList(env.getActiveProfiles()).contains("dev");

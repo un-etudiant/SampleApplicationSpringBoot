@@ -39,12 +39,13 @@ import org.springframework.core.env.SimpleCommandLinePropertySource;
 public class EmployeeManagementApplication {
 
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(EmployeeManagementApplication.class);
-        SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
-        if (!source.containsProperty("spring.profiles.active") &&
-                !System.getenv().containsKey("SPRING_PROFILES_ACTIVE")) {
-            app.setAdditionalProfiles("dev"); // Set default profile to dev
-        }
-        app.run(args);
-    }
+//        SpringApplication app = new SpringApplication(EmployeeManagementApplication.class);
+//        SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
+//        if (!source.containsProperty("spring.profiles.active") &&
+//                !System.getenv().containsKey("SPRING_PROFILES_ACTIVE")) {
+//            app.setAdditionalProfiles("dev"); // Set default profile to dev
+//        }
+
+        SpringApplication.run(EmployeeManagementApplication.class, args);
+           }
 }
