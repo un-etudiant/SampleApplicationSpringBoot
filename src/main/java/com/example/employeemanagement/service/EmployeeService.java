@@ -31,6 +31,11 @@ public class EmployeeService {
             log.error(" Cannot use NULL email");
             throw new UnsupportedOperationException("Cannot use NULL email");
         }
+        Employee byEmail = employeeRepository.findByEmail(employee.getEmail());
+        if (byEmail != null) {
+            log.error("Employee with Email {} already exists", employee.getEmail());
+            throw new UnsupportedOperationException("Employee with email " + employee.getEmail() + " already exists");
+        }
         return employeeRepository.save(employee);
 
     }

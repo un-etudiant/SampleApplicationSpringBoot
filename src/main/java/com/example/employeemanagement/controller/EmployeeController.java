@@ -1,5 +1,6 @@
 package com.example.employeemanagement.controller;
 
+import com.example.employeemanagement.client.EmployeeServiceClient;
 import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final EmployeeServiceClient  employeeServiceClient;
 
 
     @GetMapping
@@ -26,6 +28,18 @@ public class EmployeeController {
     public Optional<Employee> getEmployeeById(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
+
+    @GetMapping("/client")
+    public void getEmployeeByTestId() {
+         employeeServiceClient.test();
+    }
+
+
+    @GetMapping("/post")
+    public void postEmployeeByTestId() {
+        employeeServiceClient.post();
+    }
+
 
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee) {
